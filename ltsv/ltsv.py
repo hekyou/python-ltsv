@@ -28,7 +28,7 @@ class Ltsv(object):
             uni_string = string.rstrip()
         else:
             raise ValueError("not support")
-        return dict([x.split(u":") for x in uni_string.split(u"\t")])
+        return dict([x.split(u":", 1) for x in uni_string.split(u"\t")])
 
     def parse_file(self, handle, encoding="utf-8"):
         out = []
