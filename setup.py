@@ -1,5 +1,5 @@
 from distutils.core import setup, Command
-from ltsv import __version__, __license__
+from ltsv import __version__
 
 class PyTest(Command):
     user_options = []
@@ -19,8 +19,8 @@ setup(
     author='hekyou',
     author_email='hekyolabs@gmail.com',
     url='https://github.com/hekyou/python-ltsv',
-    keywords='ltsv',
-    license=__license__,
+    keywords=['ltsv',],
+    license="MIT License",
     packages=['ltsv'],
     cmdclass = {'test': PyTest},
 )
