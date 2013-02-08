@@ -21,7 +21,7 @@ class Ltsv(object):
         else:
             raise ValueError("not support")
 
-    def parse_string(self, string, encoding):
+    def parse_string(self, string, encoding="utf-8"):
         if isinstance(string, str):
             uni_string = string.decode(encoding).rstrip()
         elif isinstance(obj, unicode):
@@ -30,7 +30,7 @@ class Ltsv(object):
             raise ValueError("not support")
         return dict([x.split(u":") for x in uni_string.split(u"\t")])
 
-    def parse_file(self, handle, encoding):
+    def parse_file(self, handle, encoding="utf-8"):
         out = []
         for line in handle:
             out.append(self.parse_string(line, encoding))
