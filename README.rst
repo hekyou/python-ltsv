@@ -17,8 +17,7 @@ Usage
 
 .. code-block:: python
 
-   from ltsv import Ltsv
-   ltsv = Ltsv()
+   import ltsv
 
 
 parsing LTSV string
