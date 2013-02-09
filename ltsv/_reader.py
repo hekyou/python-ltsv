@@ -1,5 +1,7 @@
 # -*- encoding: utf-8 -*-
 
+import re
+
 def reader(ltsvfile, labels=None):
     """Make LTSV Reader for reading selected labels.
 
@@ -7,8 +9,11 @@ def reader(ltsvfile, labels=None):
     :param  labels: sequence of labels. (optional)
     :return: generator of record in [[label, value], ...] form.
     """
+    label_pattern = re.compile(r"^[0-9A-Za-z_.-]+:")
+
     if labels is not None:
-        prefixes = tuple(L + ':' for L in labels)
+        prefixes = tuple(L + ':' for L in labels
+                if label_pattern.match(L + ':'))
         for record in ltsvfile:
             record = record.rstrip('\r\n')
             yield [x.split(':', 1) for x in record.split('\t')
@@ -17,7 +22,8 @@ def reader(ltsvfile, labels=None):
 
     for record in ltsvfile:
         record = record.rstrip('\r\n')
-        yield [x.split(':', 1) for x in record.split('\t') if x.find(':') > 0]
+        yield [x.split(':', 1) for x in record.split('\t')
+                if label_pattern.match(x)]
 
 def DictReader(ltsvfile, labels=None, dict_type=dict):
     """Make LTSV Reader for reading selected labels.
