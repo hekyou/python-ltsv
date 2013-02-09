@@ -1,5 +1,6 @@
-### /Users/inada-n/.gitignore-boilerplates/Python.gitignore
+### .gitignore-boilerplates/Python.gitignore
 
+MANIFEST
 *.py[cod]
 
 # C extensions
@@ -36,5 +37,3 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-
-
