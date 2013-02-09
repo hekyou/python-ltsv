@@ -13,9 +13,11 @@ class PyTest(Command):
         errno = subprocess.call([sys.executable, 'runtests.py'])
         raise SystemExit(errno)
 
-with open('README.rst') as f:
-    long_description = f.read()
-del f
+try:
+    with open('README.rst') as f:
+        long_description = f.read()
+except IOError:
+    long_description = ""
 
 setup(
     name='ltsv',
