@@ -1,6 +1,9 @@
 LTSV parser
 ===========
 
+.. image:: https://travis-ci.org/hekyou/python-ltsv.png?branch=master
+   :target: https://travis-ci.org/hekyou/python-ltsv
+
 Parser implementation in Python
 
 :LTSV:
